@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>{{titulo}}</h1>
+<div mat-dialog-content>
+    <form [formGroup]="letraFormulario" #formulario="ngForm">
+        <div *ngIf="data" class="id">
+            <mat-label>Id. {{data.id}}</mat-label>
+        </div>
+
+        <mat-form-field>
+            <mat-label>Música</mat-label>
+            <input matInput required formControlName="musica">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Banda</mat-label>
+            <input matInput required formControlName="banda">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Autor</mat-label>
+            <input matInput formControlName="autor">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Album</mat-label>
+            <input matInput formControlName="album">
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Letra</mat-label>
+            <textarea matInput required formControlName="letra"></textarea>
+        </mat-form-field>    
+    </form>
+</div>
+<div class="btn" mat-dialog-actions>
+    <button mat-raised-button color="accent" [disabled]="formulario.invalid" (click)="btnSalvar()">Salvar</button>
+    <button mat-raised-button color="warn"(click)="btnCancelar()">Cancelar</button>
+</div>

@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Confirma a exclusão da letra?</h2>
+<div>
+  <mat-label>Música: </mat-label>
+  <mat-label> {{letra.musica}} </mat-label>
+</div>
+<div>
+  <mat-label>Banda: </mat-label>
+  <mat-label> {{letra.banda}} </mat-label>
+</div>
+<div class="btn" mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="btnConfirmar()">Confirma</button>
+  <button mat-raised-button color="primary"(click)="btnCancelar()">Cancelar</button>
+</div>
