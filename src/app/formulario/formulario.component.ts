@@ -13,6 +13,7 @@ export class FormularioComponent implements OnInit {
 
   titulo: string;
   letraFormulario: FormGroup;
+  exibeMsgErroMusica: boolean = false;
 
   constructor(private formbuilder: FormBuilder,
               public formularioRef: MatDialogRef<FormularioComponent>,
@@ -45,8 +46,13 @@ export class FormularioComponent implements OnInit {
 
   btnSalvar() {
     if(!this.data) {
-      this.tableService.addLetra(this.letraFormulario.value);
-      this.formularioRef.close();
+      if(this.tableService.existeLetraIgual(this.letraFormulario.value)) {
+        this.exibeMsgErroMusica = true;
+        setTimeout(()=> this.exibeMsgErroMusica = false ,5000)
+      } else {
+        this.tableService.addLetra(this.letraFormulario.value);
+        this.formularioRef.close();
+      }
     } else {
       this.tableService.editarLetra(this.letraFormulario.value);
       this.formularioRef.close();

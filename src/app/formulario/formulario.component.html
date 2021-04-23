@@ -10,6 +10,10 @@
             <input matInput required formControlName="musica">
         </mat-form-field>
 
+        <mat-error *ngIf="exibeMsgErroMusica">
+            Musica já existente
+        </mat-error>
+
         <mat-form-field>
             <mat-label>Banda</mat-label>
             <input matInput required formControlName="banda">

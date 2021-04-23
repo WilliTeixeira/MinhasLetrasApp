@@ -17,6 +17,11 @@ export class TableService {
     return this.baseLetras;
   }
 
+  existeLetraIgual(letra: Letras): boolean {
+    const existeLetra = this.baseLetras.findIndex((letraBase) => letraBase.musica == letra.musica)
+    return existeLetra != -1 ? true : false;
+  }  
+
   addLetra(novaLetra: Letras): void {
     this.id = this.id + 1;
     novaLetra.id = this.id;
