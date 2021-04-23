@@ -18,7 +18,7 @@ export class TableService {
   }
 
   existeLetraIgual(letra: Letras): boolean {
-    const existeLetra = this.baseLetras.findIndex((letraBase) => letraBase.musica == letra.musica)
+    const existeLetra = this.baseLetras.findIndex((letraBase) => letraBase.musica === letra.musica)
     return existeLetra != -1 ? true : false;
   }  
 
